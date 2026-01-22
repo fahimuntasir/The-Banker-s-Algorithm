@@ -1,97 +1,117 @@
-# Banker's Algorithm in C/C++
+## 🏦 The Banker’s Algorithm (Operating Systems Project)
 
-This repository contains an implementation of the **Banker’s Algorithm**, a classic **deadlock avoidance algorithm** used in operating systems for safe resource allocation.
+An implementation of the **Banker’s Algorithm** for **deadlock avoidance** in Operating Systems.
+This project determines whether a system is in a **safe state** based on process resource requests and allocations.
 
 ---
 
 ## 📌 Project Overview
 
-The Banker’s Algorithm determines whether a system is in a **safe state** before granting resource requests to processes.
-If a safe sequence exists, all processes can complete execution without causing a deadlock.
+The **Banker’s Algorithm**, proposed by **Edsger Dijkstra**, is a classic deadlock avoidance algorithm used in operating systems.
+It ensures that resource allocation always keeps the system in a **safe state**, preventing deadlocks.
 
-This implementation takes system configuration as input and outputs whether the system is **safe (`Yes`)** or **unsafe (`No`)**.
-
----
-
-## ✨ Features
-
-* Supports multiple processes and multiple resource types
-* Calculates **Available**, **Need**, and **Work** matrices
-* Performs **safety algorithm** check
-* Determines whether a **safe sequence exists**
-* Efficient and easy-to-read C/C++ implementation
+This project simulates the algorithm by checking whether a given set of processes and resources can be executed in a safe sequence.
 
 ---
 
-## 🧠 Algorithm Explanation
+## 🎯 Objectives
 
-The algorithm works by:
-
-1. Calculating the **Available** resources
-2. Computing **Need = Max − Allocation**
-3. Iteratively finding a process whose `Need ≤ Available`
-4. Releasing allocated resources after a process completes
-5. Repeating until:
-
-   * all processes complete → **safe state**
-   * or no further progress is possible → **unsafe state**
+* Detect whether a system is in a **safe or unsafe state**
+* Prevent **deadlock** during resource allocation
+* Simulate real-world **process scheduling constraints**
+* Strengthen understanding of **Operating Systems resource management**
 
 ---
 
-## ⏱ Time Complexity
+## 🧠 Key Concepts Used
 
-| Operation           | Complexity      |
-| ------------------- | --------------- |
-| Safety check        | O(n² × m)       |
-| Resource comparison | O(m)            |
-| Overall             | Polynomial time |
-
-Where:
-
-* `n` = number of processes
-* `m` = number of resource types
+* Banker’s Algorithm
+* Deadlock avoidance
+* Process scheduling
+* Resource allocation matrices
+* Safe state detection
+* Operating Systems fundamentals
 
 ---
 
-## 🧾 Input Format
+## 🧾 Problem Description
 
-1. Number of processes (`n`) and number of resources (`m`)
-2. Total instances of each resource
-3. Maximum demand matrix (`n × m`)
-4. Allocation matrix (`n × m`)
+Given:
 
----
+* `n` processes
+* `m` resource types
+* Total available resources
+* Maximum resource claim matrix
+* Current allocation matrix
 
-## 📤 Output
-
-* Prints `Yes` if the system is in a safe state
-* Prints `No` if the system is in an unsafe state
-* (Optional) Prints a safe execution sequence
+The program determines whether **all processes can finish execution safely**.
 
 ---
 
-## 🛠 How to Compile and Run
+## 📥 Input Format
 
-### Using GCC
+1. Two integers `n` and `m`
+2. Resource vector (total resources for each type)
+3. Claim (maximum) matrix of size `n × m`
+4. Allocation matrix of size `n × m`
 
-```bash
-gcc bankers_algorithm.c -o banker
-./banker
+---
+
+## 📤 Output Format
+
+* **`Yes`** → System is in a safe state
+* **`No`** → System is NOT in a safe state (deadlock possible)
+
+---
+
+## 🧪 Sample Test Cases
+
+### Test Case 1
+
+**Input:**
+
+```
+5 3
+10 5 7
+...
 ```
 
----
+**Output:**
 
-## 🧪 Sample Output
+```
+No
+```
+
+### Test Case 2
+
+**Input:**
+
+```
+5 3
+10 5 7
+...
+```
+
+**Output:**
 
 ```
 Yes
 ```
 
-or
+(Additional test cases included in the project)
 
-```
-No
-```
+---
+
+## 💻 Implementation Details
+
+* **Language:** C / C++ (based on your implementation)
+* **Algorithm:** Banker’s Algorithm
+* **Approach:**
+
+  * Calculate **Need Matrix**
+  * Track **Available Resources**
+  * Repeatedly find a process that can safely execute
+  * Determine safe or unsafe state
 
 ---
 
@@ -100,24 +120,53 @@ No
 ```
 The-Banker-s-Algorithm/
 │
-├── bankers_algorithm.c
+├── main.c / main.cpp
 ├── README.md
-└── sample_input.txt
+└── test_cases/
 ```
 
 ---
 
-## 🎓 Course Information
+## ▶️ How to Run
 
-* **Course**: Operating Systems
-* **Institution**: Hubei University of Technology
-* **Topic**: Deadlock Avoidance & Resource Allocation
+1. Compile the program:
+
+```bash
+gcc bankers.c -o bankers
+```
+
+2. Run the program:
+
+```bash
+./bankers
+```
+
+3. Provide input as specified
 
 ---
 
-## ✍ Author
+## 🏫 Academic Information
 
-**Md Fahim Muntasir**
-Computer Science & Technology
+* **Course:** Operating Systems
+* **University:** Hubei University of Technology
+* **Student Name:** Muntasir Md Fahim (王一然)
+* **Student ID:** 1911521213
+* **Class:** 19 lq CST
+
+---
+
+## 📚 References
+
+* Operating System Concepts (Silberschatz, Galvin, Gagne)
+* Textbook: *The Banker’s Algorithm for Multiple Resources* (pp. 454–456)
+* GeeksforGeeks
+* Stack Overflow
+
+---
+
+## 📜 License
+
+This project is developed for **academic and educational purposes**.
+You are free to use, modify, and learn from it with proper attribution.
 
 ---
