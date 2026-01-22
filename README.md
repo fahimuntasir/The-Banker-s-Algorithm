@@ -104,7 +104,7 @@ Yes
 
 ## 💻 Implementation Details
 
-* **Language:** C / C++ (based on your implementation)
+* **Language:** C++
 * **Algorithm:** Banker’s Algorithm
 * **Approach:**
 
@@ -120,7 +120,7 @@ Yes
 ```
 The-Banker-s-Algorithm/
 │
-├── main.c / main.cpp
+├── main.cpp
 ├── README.md
 └── test_cases/
 ```
